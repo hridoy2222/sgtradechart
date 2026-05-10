@@ -1,99 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SGTRADECHART</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header class="topbar">
+<header>
   <h1>SGTRADECHART</h1>
-  <div class="market-status">
-    <span class="status blue">TREND: SIDEWAYS</span>
-    <span class="status green">VOLATILITY: NORMAL</span>
-  </div>
+  <button>LIVE OTC</button>
 </header>
 
 <div class="container">
 
-  <aside class="sidebar">
-    <h2>OTC Pairs</h2>
-    <ul>
-      <li>EUR/USD OTC</li>
-      <li>GBP/USD OTC</li>
-      <li>USD/JPY OTC</li>
-      <li>AUD/CAD OTC</li>
-      <li>EUR/JPY OTC</li>
-    </ul>
+<div class="pairs">
+  <h2>OTC PAIRS</h2>
 
-    <div class="signal-box">
-      <h3>Live Signal</h3>
-      <div class="signal buy">BUY ↑</div>
-      <p>Expiry: 1 Minute</p>
-      <p>Accuracy: 89%</p>
-    </div>
-  </aside>
+  <div class="pair" onclick="changePair('EURUSD')">
+    EUR/USD OTC
+  </div>
 
-  <main class="dashboard">
+  <div class="pair" onclick="changePair('USDBRL')">
+    USD/BRL OTC
+  </div>
 
-    <div class="chart-card">
-      <h2>Live OTC Chart</h2>
+  <div class="pair" onclick="changePair('GBPJPY')">
+    GBP/JPY OTC
+  </div>
 
-      <div class="tradingview-widget-container">
-        <iframe
-          src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_widget&symbol=FX:EURUSD&interval=1&hidesidetoolbar=1&theme=dark"
-          width="100%"
-          height="500"
-          frameborder="0">
-        </iframe>
-      </div>
+  <div class="pair" onclick="changePair('AUDUSD')">
+    AUD/USD OTC
+  </div>
 
-    </div>
+  <div class="pair" onclick="changePair('EURJPY')">
+    EUR/JPY OTC
+  </div>
+</div><div class="pairs">
+  <h2>OTC PAIRS</h2>
 
-    <div class="signal-history">
-      <h2>Signal History</h2>
+  <div class="pair">EUR/USD OTC</div>
+  <div class="pair">USD/BRL OTC</div>
+  <div class="pair">GBP/JPY OTC</div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Pair</th>
-            <th>Signal</th>
-            <th>Time</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>EUR/USD OTC</td>
-            <td class="buy-text">BUY</td>
-            <td>12:01</td>
-            <td>WIN</td>
-          </tr>
-
-          <tr>
-            <td>GBP/USD OTC</td>
-            <td class="sell-text">SELL</td>
-            <td>12:03</td>
-            <td>WIN</td>
-          </tr>
-
-          <tr>
-            <td>USD/JPY OTC</td>
-            <td class="buy-text">BUY</td>
-            <td>12:05</td>
-            <td>LOSS</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-  </main>
+  <div class="pair">AUD/CAD OTC</div>
+  <div class="pair">EUR/JPY OTC</div>
+  <div class="pair">USD/PKR OTC</div>
+  <div class="pair">GBP/USD OTC</div>
+  <div class="pair">USD/BDT OTC</div>
+  <div class="pair">NZD/USD OTC</div>
 
 </div>
 
-<script src="app.js"></script>
+  <div class="chart">
+    <iframe>
+<iframe
+  id="chartFrame"
+  src="https://s.tradingview.com/widgetembed/?symbol=FX:EURUSD&interval=1&theme=dark"
+  width="100%"
+  height="500"
+></iframe>
+    </iframe>
+  </div>
+
+  <div class="signal">
+    <h2>AI SIGNAL</h2>
+
+    <div class="buy">
+  BUY SIGNAL
+
+  <p id="currentPair">
+    EUR/USD OTC
+  </p>
+
+  <p>Strength: 91%</p>
+</div>
+
+    <div class="sell">
+      SELL SIGNAL
+      <p>Strength: 77%</p>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
