@@ -1,0 +1,83 @@
+'use client'
+
+import { FaArrowUp, FaArrowDown } from 'react-icons/fa'
+
+export default function Home() {
+
+  const signals = [
+    {
+      pair: 'EUR/USD OTC',
+      type: 'BUY',
+      win: '87%'
+    },
+    {
+      pair: 'GBP/USD',
+      type: 'SELL',
+      win: '82%'
+    }
+  ]
+
+  return (
+    <main className="min-h-screen bg-black text-white p-5">
+
+      <h1 className="text-4xl font-bold text-center text-green-400 mb-6">
+        HRTRADE
+      </h1>
+
+      {/* Market Trend */}
+  
+      <div className="bg-zinc-900 rounded-2xl p-4 mb-5">
+        <h2 className="text-xl mb-2">Market Trend</h2>
+
+        <div className="flex items-center gap-2 text-green-400">
+          <FaArrowUp />
+          Bullish Market
+        </div>
+      </div>
+
+      {/* TradingView Chart */}
+      <div className="rounded-2xl overflow-hidden mb-5">
+        <iframe
+          src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_chart&symbol=FX:EURUSD&interval=1&theme=dark"
+          width="100%"
+          height="400"
+        />
+      </div>
+
+      {/* Signals */}
+      <div className="grid gap-4">
+
+        {signals.map((signal, index) => (
+          <div
+            key={index}
+            className="bg-zinc-900 rounded-2xl p-4 border border-zinc-800"
+          >
+
+            <div className="flex justify-between items-center">
+              <h3 className="text-lg font-bold">
+                {signal.pair}
+              </h3>
+
+              <span
+                className={`px-3 py-1 rounded-full text-sm ${
+                  signal.type === 'BUY'
+                    ? 'bg-green-500'
+                    : 'bg-red-500'
+                }`}
+              >
+                {signal.type}
+              </span>
+            </div>
+
+            <p className="mt-3 text-zinc-400">
+              Win Rate: {signal.win}
+            </p>
+
+          </div>
+        ))}
+
+      </div>
+
+    </main>
+  )
+}
