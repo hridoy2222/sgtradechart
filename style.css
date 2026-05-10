@@ -1,56 +1,145 @@
-body{
+
+*{
   margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
   background:#0f172a;
   color:white;
-  font-family:sans-serif;
 }
 
-header{
+.topbar{
   display:flex;
   justify-content:space-between;
+  align-items:center;
   padding:20px;
   background:#111827;
+  border-bottom:1px solid #1f2937;
 }
 
-button{
-  background:cyan;
-  border:none;
-  padding:10px 20px;
-  border-radius:10px;
+.topbar h1{
+  color:#00ff99;
+}
+
+.market-status{
+  display:flex;
+  gap:10px;
+}
+
+.status{
+  padding:10px 15px;
+  border-radius:8px;
+  font-size:14px;
+}
+
+.blue{
+  background:#2563eb;
+}
+
+.green{
+  background:#16a34a;
 }
 
 .container{
-  display:grid;
-  grid-template-columns:1fr 3fr 1fr;
-  gap:20px;
-  padding:20px;
+  display:flex;
+  min-height:100vh;
 }
 
-.pairs,
-.chart,
-.signal{
+.sidebar{
+  width:280px;
   background:#111827;
   padding:20px;
-  border-radius:20px;
+  border-right:1px solid #1f2937;
 }
 
-.pair{
-  background:#1f2937;
+.sidebar h2{
+  margin-bottom:15px;
+}
+
+.sidebar ul{
+  list-style:none;
+}
+
+.sidebar li{
+  padding:12px;
+  margin-bottom:10px;
+  background:#1e293b;
+  border-radius:8px;
+}
+
+.signal-box{
+  margin-top:30px;
+  background:#1e293b;
+  padding:20px;
+  border-radius:12px;
+}
+
+.signal{
+  margin:15px 0;
   padding:15px;
-  margin-top:10px;
+  text-align:center;
+  font-size:24px;
+  font-weight:bold;
   border-radius:10px;
 }
 
 .buy{
-  background:green;
-  padding:20px;
-  border-radius:20px;
-  margin-top:20px;
+  background:#16a34a;
 }
 
 .sell{
-  background:red;
+  background:#dc2626;
+}
+
+.dashboard{
+  flex:1;
   padding:20px;
-  border-radius:20px;
-  margin-top:20px;
+}
+
+.chart-card{
+  background:#111827;
+  padding:20px;
+  border-radius:15px;
+  margin-bottom:20px;
+}
+
+.signal-history{
+  background:#111827;
+  padding:20px;
+  border-radius:15px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:15px;
+}
+
+th, td{
+  padding:15px;
+  border-bottom:1px solid #1f2937;
+  text-align:left;
+}
+
+.buy-text{
+  color:#22c55e;
+  font-weight:bold;
+}
+
+.sell-text{
+  color:#ef4444;
+  font-weight:bold;
+}
+
+@media(max-width:900px){
+  .container{
+    flex-direction:column;
+  }
+
+  .sidebar{
+    width:100%;
+  }
 }
